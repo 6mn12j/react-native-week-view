@@ -2,7 +2,10 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   item: {
-    alignItems: 'center',
+   // alignItems: 'center',
+   alignItems:'flex-start',
+   paddingVertical:2,
+   paddingHorizontal:10,
     position: 'absolute',
     borderRadius: 0,
     flex: 1,
