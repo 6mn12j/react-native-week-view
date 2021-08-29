@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 
+const DARKGRAY_COLOR='#5E5E5E'
 const styles = StyleSheet.create({
   columnContainer: {
     paddingTop: 10,
@@ -10,6 +11,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 12,
+    color:DARKGRAY_COLOR,
     textAlign: 'center',
   },
 });
