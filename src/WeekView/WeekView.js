@@ -22,6 +22,7 @@ import {
   availableNumberOfDays,
   setLocale,
   CONTAINER_WIDTH,
+  getSchrollToTimeTnowHeight,
 } from '../utils';
 
 const MINUTES_IN_DAY = 60 * 24;
@@ -36,7 +37,8 @@ export default class WeekView extends Component {
     this.currentPageIndex = this.pageOffset;
     this.eventsGridScrollX = new Animated.Value(0);
 
-    const initialDates = this.calculatePagesDates(
+    const 
+    initialDates = this.calculatePagesDates(
       props.selectedDate,
       props.numberOfDays,
       props.weekStartsOn,
@@ -102,8 +104,8 @@ export default class WeekView extends Component {
 
   scrollToVerticalStart = () => {
     if (this.verticalAgenda) {
-      const { startHour, hoursInDisplay } = this.props;
-      const startHeight = (startHour * CONTAINER_HEIGHT) / hoursInDisplay;
+      const { startHour, hoursInDisplay, scrollToTimeNow} = this.props;
+      let startHeight = ((scrollToTimeNow ? getSchrollToTimeTnowHeight(new Date().getHours()) : startHour) * CONTAINER_HEIGHT) / hoursInDisplay;
       this.verticalAgenda.scrollTo({ y: startHeight, x: 0, animated: false });
     }
   };
@@ -380,6 +382,7 @@ export default class WeekView extends Component {
       fixedHorizontally,
       showNowLine,
       nowLineColor,
+      scrollToTimeNow
     } = this.props;
     const { currentMoment, initialDates } = this.state;
     const times = this.calculateTimes(timeStep, formatTimeLabel);
@@ -521,6 +524,7 @@ WeekView.propTypes = {
   prependMostRecent: PropTypes.bool,
   showNowLine: PropTypes.bool,
   nowLineColor: PropTypes.string,
+  scrollToTimeNow:PropTypes.bool
 };
 
 WeekView.defaultProps = {
@@ -534,4 +538,5 @@ WeekView.defaultProps = {
   showTitle: true,
   rightToLeft: false,
   prependMostRecent: false,
+  scrollToTimeNow:false
 };

@@ -53,3 +53,8 @@ export const createFixedWeekDate = (day, hours, minutes = 0, seconds = 0) => {
   date.seconds(seconds);
   return date.toDate();
 };
+
+//custom
+export const getSchrollToTimeTnowHeight = (nowHour) =>{
+  return nowHour > 3 ? nowHour - 2 : 0;
+}
