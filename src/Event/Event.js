@@ -13,6 +13,7 @@ const Event = ({
 }) => {
   return (
     <TouchableOpacity
+      activeOpacity={0.8}
       onPress={() => onPress && onPress(event)}
       onLongPress={() => onLongPress && onLongPress(event)}
       style={[
