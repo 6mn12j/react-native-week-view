@@ -5,9 +5,10 @@ const BACKGROUND_COLOR='#ECF5F471'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingLeft:20,
-    paddingRight:20,
-    backgroundColor:BACKGROUND_COLOR
+   // paddingLeft:40,
+    paddingTop:20,
+    backgroundColor:BACKGROUND_COLOR,
+    paddingHorizontal:40
   },
   scrollViewContent: {
     flexDirection: 'row',

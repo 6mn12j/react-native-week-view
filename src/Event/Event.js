@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import styles from './Event.styles';
+import IconCheck from "../../../../assets/icons/icon-check"
+import IconFail from "../../../../assets/icons/icon-fail"
 
 const Event = ({
   event,
@@ -11,9 +13,43 @@ const Event = ({
   EventComponent,
   containerStyle,
 }) => {
+  const renderIcon = (event)=>{
+    if(new Date() < event.startDate)
+      return;
+    return (
+      <>
+      {event.isDone ? <View
+        style={[
+          position,
+          styles.iconCheck,
+        
+        ]}>
+          <IconCheck
+          name="icon-check"
+          color="#fff"
+          size={11}
+          style={{ position: 'absolute' }}
+        />
+        </View>:
+       <View
+       style={[
+         position,
+         styles.iconFail,
+       
+       ]}>
+        <IconFail
+         name="cancel-2"
+         color="#fff"
+         size={11}
+         style={{ position: 'absolute' }}/>
+         </View>}
+         </>
+    )
+  }
   return (
+    <>
+    {renderIcon(event)}
     <TouchableOpacity
-      activeOpacity={0.8}
       onPress={() => onPress && onPress(event)}
       onLongPress={() => onLongPress && onLongPress(event)}
       style={[
@@ -32,6 +68,7 @@ const Event = ({
         <Text style={styles.description}>{event.description}</Text>
       )}
     </TouchableOpacity>
+    </>
   );
 };
 

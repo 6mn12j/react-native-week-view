@@ -7,10 +7,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: CONTENT_OFFSET,
-    width: CONTAINER_WIDTH,
+    width: CONTAINER_WIDTH+10,
   },
   timeRow: {
     flex: 0,
+    
   },
   timeLabelLine: {
     height: 0.5,
@@ -32,6 +33,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     top: 0,
     backgroundColor: 'transparent',
+    
   },
 });
 
