@@ -4,6 +4,7 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import styles from './Event.styles';
 import IconCheck from "../../../../assets/icons/icon-check"
 import IconFail from "../../../../assets/icons/icon-fail"
+import { CONTAINER_HEIGHT } from 'react-native-week-view/src/utils';
 
 const Event = ({
   event,
@@ -14,7 +15,7 @@ const Event = ({
   containerStyle,
 }) => {
   const renderIcon = (event)=>{
-    if(new Date() < event.startDate)
+    if(new Date() < event?.startDate || (!event?.isDone &&  new Date() < event?.endDate))
       return;
     return (
       <>
@@ -22,12 +23,11 @@ const Event = ({
         style={[
           position,
           styles.iconCheck,
-        
         ]}>
           <IconCheck
           name="icon-check"
           color="#fff"
-          size={11}
+          size={CONTAINER_HEIGHT > 508 ? 11 : 9}
           style={{ position: 'absolute' }}
         />
         </View>:
@@ -40,12 +40,13 @@ const Event = ({
         <IconFail
          name="cancel-2"
          color="#fff"
-         size={11}
+         size={CONTAINER_HEIGHT > 508 ? 11 : 9}
          style={{ position: 'absolute' }}/>
          </View>}
          </>
     )
   }
+
   return (
     <>
     {renderIcon(event)}

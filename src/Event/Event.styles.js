@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-
+import  { CONTAINER_HEIGHT } from '../utils'
 const styles = StyleSheet.create({
   item: {
    // alignItems: 'center',
@@ -22,23 +22,25 @@ const styles = StyleSheet.create({
     position: 'absolute',
     borderRadius: 50,
     backgroundColor: '#54BCB6',
-    width: 25,
-    height: 25,
+    width: CONTAINER_HEIGHT > 508 ? 21 : 18,
+    height: CONTAINER_HEIGHT > 508 ? 21 : 18,
     borderRadius: 50,
-    marginLeft: 12,
+    marginLeft: 15,
     justifyContent: 'center',
     alignItems: 'center',
+    
   }, 
   iconFail:{
     position: 'absolute',
     borderRadius: 50,
     backgroundColor: '#C3C3C3',
-    width: 25,
-    height: 25,
+    width: CONTAINER_HEIGHT > 508 ? 21 : 18,
+    height: CONTAINER_HEIGHT > 508 ? 21 : 18,
     borderRadius: 50,
-    marginLeft: 12,
+    marginLeft: 15,
     justifyContent: 'center',
     alignItems: 'center',
+   
   }
 });
 

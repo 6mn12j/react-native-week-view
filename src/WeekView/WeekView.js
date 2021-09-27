@@ -6,6 +6,7 @@ import {
   Animated,
   VirtualizedList,
   InteractionManager,
+  RefreshControl,
 } from 'react-native';
 import moment from 'moment';
 import memoizeOne from 'memoize-one';
@@ -37,6 +38,7 @@ export default class WeekView extends Component {
     this.currentPageIndex = this.pageOffset;
     this.eventsGridScrollX = new Animated.Value(0);
 
+    
     const 
     initialDates = this.calculatePagesDates(
       props.selectedDate,
@@ -49,6 +51,8 @@ export default class WeekView extends Component {
       // currentMoment should always be the first date of the current page
       currentMoment: moment(initialDates[this.currentPageIndex]).toDate(),
       initialDates,
+      refreshing:false,
+      
     };
 
     setLocale(props.locale);
@@ -90,6 +94,14 @@ export default class WeekView extends Component {
 
   componentWillUnmount() {
     this.eventsGridScrollX.removeAllListeners();
+  }
+
+  _onRefresh = () => {
+    const {scrollRefresh} = this.props;
+    this.setState({refreshing: true});
+    scrollRefresh().then(() => {
+      this.setState({refreshing: false});
+    });
   }
 
   calculateTimes = memoizeOne((minutesStep, formatTimeLabel) => {
@@ -382,7 +394,8 @@ export default class WeekView extends Component {
       fixedHorizontally,
       showNowLine,
       nowLineColor,
-      scrollToTimeNow
+      scrollToTimeNow,
+      scrollRefresh
     } = this.props;
     const { currentMoment, initialDates } = this.state;
     const times = this.calculateTimes(timeStep, formatTimeLabel);
@@ -431,7 +444,13 @@ export default class WeekView extends Component {
             }}
           />
         </View>
-        <ScrollView ref={this.verticalAgendaRef}>
+        <ScrollView 
+        refreshControl={
+          <RefreshControl
+            refreshing={this.state.refreshing}
+            onRefresh={this._onRefresh}
+          />}
+        ref={this.verticalAgendaRef}>
           <View style={styles.scrollViewContent}>
             <Times
               times={times}
@@ -534,7 +553,8 @@ WeekView.propTypes = {
   prependMostRecent: PropTypes.bool,
   showNowLine: PropTypes.bool,
   nowLineColor: PropTypes.string,
-  scrollToTimeNow:PropTypes.bool
+  scrollToTimeNow:PropTypes.bool,
+  scrollRefresh:PropTypes.func
 };
 
 WeekView.defaultProps = {
@@ -548,5 +568,5 @@ WeekView.defaultProps = {
   showTitle: true,
   rightToLeft: false,
   prependMostRecent: false,
-  scrollToTimeNow:false
+  scrollToTimeNow:false,
 };
