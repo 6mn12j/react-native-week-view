@@ -7,6 +7,7 @@ import {
   VirtualizedList,
   InteractionManager,
   RefreshControl,
+  ActivityIndicator,
 } from 'react-native';
 import moment from 'moment';
 import memoizeOne from 'memoize-one';
@@ -395,7 +396,9 @@ export default class WeekView extends Component {
       showNowLine,
       nowLineColor,
       scrollToTimeNow,
-      scrollRefresh
+      scrollRefresh,
+      isRefreshing,
+      RefreshComponent,
     } = this.props;
     const { currentMoment, initialDates } = this.state;
     const times = this.calculateTimes(timeStep, formatTimeLabel);
@@ -444,13 +447,16 @@ export default class WeekView extends Component {
             }}
           />
         </View>
+        {isRefreshing && RefreshComponent && (
+          <RefreshComponent style={styles.loadingSpinner} />
+        )}
         <ScrollView 
         refreshControl={
           <RefreshControl
             refreshing={this.state.refreshing}
             onRefresh={this._onRefresh}
           />}
-        ref={this.verticalAgendaRef}>
+        ref={this.verticalAgendaRef}> 
           <View style={styles.scrollViewContent}>
             <Times
               times={times}
@@ -554,7 +560,9 @@ WeekView.propTypes = {
   showNowLine: PropTypes.bool,
   nowLineColor: PropTypes.string,
   scrollToTimeNow:PropTypes.bool,
-  scrollRefresh:PropTypes.func
+  scrollRefresh:PropTypes.func,
+  isRefreshing: PropTypes.bool,
+  RefreshComponent: PropTypes.elementType,
 };
 
 WeekView.defaultProps = {
@@ -569,4 +577,5 @@ WeekView.defaultProps = {
   rightToLeft: false,
   prependMostRecent: false,
   scrollToTimeNow:false,
+  RefreshComponent: ActivityIndicator,
 };
