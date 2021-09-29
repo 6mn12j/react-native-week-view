@@ -395,10 +395,12 @@ export default class WeekView extends Component {
       fixedHorizontally,
       showNowLine,
       nowLineColor,
-      scrollToTimeNow,
-      scrollRefresh,
       isRefreshing,
       RefreshComponent,
+      //custom
+      scrollToTimeNow,
+      scrollRefresh,
+      network
     } = this.props;
     const { currentMoment, initialDates } = this.state;
     const times = this.calculateTimes(timeStep, formatTimeLabel);
@@ -451,11 +453,11 @@ export default class WeekView extends Component {
           <RefreshComponent style={styles.loadingSpinner} />
         )}
         <ScrollView 
-        refreshControl={
+        refreshControl={scrollToTimeNow && network==='online' ?
           <RefreshControl
             refreshing={this.state.refreshing}
             onRefresh={this._onRefresh}
-          />}
+          /> : null}
         ref={this.verticalAgendaRef}> 
           <View style={styles.scrollViewContent}>
             <Times
@@ -492,6 +494,8 @@ export default class WeekView extends Component {
                     rightToLeft={rightToLeft}
                     showNowLine={showNowLine}
                     nowLineColor={nowLineColor}
+                    //custom
+                    network={network}
                   />
                 );
               }}
@@ -559,10 +563,13 @@ WeekView.propTypes = {
   prependMostRecent: PropTypes.bool,
   showNowLine: PropTypes.bool,
   nowLineColor: PropTypes.string,
-  scrollToTimeNow:PropTypes.bool,
-  scrollRefresh:PropTypes.func,
   isRefreshing: PropTypes.bool,
   RefreshComponent: PropTypes.elementType,
+  //custom
+  scrollToTimeNow:PropTypes.bool,
+  scrollRefresh:PropTypes.func,
+  network:PropTypes.string
+
 };
 
 WeekView.defaultProps = {
@@ -576,6 +583,8 @@ WeekView.defaultProps = {
   showTitle: true,
   rightToLeft: false,
   prependMostRecent: false,
-  scrollToTimeNow:false,
   RefreshComponent: ActivityIndicator,
+  //custom
+  scrollToTimeNow:false,
+  network:false
 };

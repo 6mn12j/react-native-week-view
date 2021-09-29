@@ -13,9 +13,11 @@ const Event = ({
   position,
   EventComponent,
   containerStyle,
+  //custom
+  network
 }) => {
   const renderIcon = (event)=>{
-    if(new Date() < event?.startDate || (!event?.isDone &&  new Date() < event?.endDate))
+    if(network==='offline' || new Date() < event?.startDate || (!event?.isDone &&  new Date() < event?.endDate))
       return;
     return (
       <>

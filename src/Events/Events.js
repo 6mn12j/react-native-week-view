@@ -220,6 +220,8 @@ class Events extends PureComponent {
       timeStep,
       showNowLine,
       nowLineColor,
+      //custom
+      network
     } = this.props;
     const totalEvents = this.processEvents(
       eventsByDate,
@@ -266,6 +268,8 @@ class Events extends PureComponent {
                     onLongPress={onEventLongPress}
                     EventComponent={EventComponent}
                     containerStyle={eventContainerStyle}
+                    //custom
+                    network={network}
                   />
                 ))}
               </View>
