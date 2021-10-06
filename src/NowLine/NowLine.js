@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { minutesToYDimension, CONTENT_OFFSET } from '../utils';
 import styles from './NowLine.styles';
 
+import IconSchedulePointer from "../../../../assets/icons/icon-schedule-pointer"
 const UPDATE_EVERY_MILLISECONDS = 60 * 1000; // 1 minute
 
 const getCurrentTop = (hoursInDisplay) => {
@@ -69,13 +70,11 @@ class NowLine extends React.Component {
           },
         ]}
       >
-        <View
-          style={[
-            styles.circle,
-            {
-              backgroundColor: color,
-            },
-          ]}
+      <IconSchedulePointer
+          color={color}
+          name='icon-schedule-pointer'
+          style={styles.circle}
+          size={8}
         />
       </Animated.View>
     );

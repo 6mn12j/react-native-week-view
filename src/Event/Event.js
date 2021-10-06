@@ -17,11 +17,11 @@ const Event = ({
   network
 }) => {
   const renderIcon = (event)=>{
-    if(network==='offline' || new Date() < event?.startDate || (!event?.isDone &&  new Date() < event?.endDate))
+    if(event.startDate > new Date())
       return;
     return (
       <>
-      {event.isDone ? <View
+      {event.color === "#54BCB6" ? <View
         style={[
           position,
           styles.iconCheck,

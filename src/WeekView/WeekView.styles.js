@@ -1,13 +1,13 @@
 import { StyleSheet } from 'react-native';
 import { SCREEN_HEIGHT } from '../../../../src/components/screen/Home';
-import { CONTAINER_WIDTH } from '../utils';
+import {  CONTAINER_WIDTH } from '../utils';
 
 const BACKGROUND_COLOR='#ECF5F471'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor:BACKGROUND_COLOR,
-    paddingHorizontal:30
+    paddingHorizontal:CONTAINER_WIDTH*0.15
   },
   scrollViewContent: {
     flexDirection: 'row',

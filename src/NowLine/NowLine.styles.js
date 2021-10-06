@@ -15,9 +15,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: -(circleSize + lineWidth) / 2,
     left: 2,
-    borderRadius: circleSize,
-    height: circleSize,
-    width: circleSize,
+ 
   },
 });
 
