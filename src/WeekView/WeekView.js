@@ -520,12 +520,11 @@ export default class WeekView extends Component {
               ref={this.eventsGridRef}
             />
           </View>
-          <View style={{width:3,height:16,backgroundColor:'#ECF5F471',position:'absolute',left:79}}/>
-          <View style={{width:3,height:16,backgroundColor:'#ECF5F471',position:'absolute',left:79}}/>
-          <View style={{width:3,height:16,backgroundColor:'#ECF5F471',position:'absolute',left:79}}/>
-          <View style={{width:3,height:16,backgroundColor:'#ECF5F471',position:'absolute',left:79}}/>
-          <View style={{width:3,height:16,backgroundColor:'#ECF5F471',position:'absolute',left:79}}/>
-          <View style={{width:3,height:16,backgroundColor:'#ECF5F471',position:'absolute',left:79}}/>
+          <View style={{width:3,height:16,backgroundColor:'#ECF5F471',position:'absolute',left:75}}/>
+          <View style={{width:3,height:16,backgroundColor:'#ECF5F471',position:'absolute',left:75}}/>
+          <View style={{width:3,height:16,backgroundColor:'#ECF5F471',position:'absolute',left:75}}/>
+          <View style={{width:3,height:16,backgroundColor:'#ECF5F471',position:'absolute',left:75}}/>
+          <View style={{width:3,height:16,backgroundColor:'#ECF5F471',position:'absolute',left:75}}/>
 
         </ScrollView>
         

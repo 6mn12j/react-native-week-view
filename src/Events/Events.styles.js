@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: CONTENT_OFFSET,
-    width: CONTAINER_WIDTH + 5,
+    width: CONTAINER_WIDTH +3,
   },
   timeRow: {
     flex: 0,

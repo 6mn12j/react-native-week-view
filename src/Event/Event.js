@@ -17,11 +17,8 @@ const Event = ({
   network
 }) => {
   const renderIcon = (event)=>{
-    if(event.startDate > new Date())
-      return;
-    return (
-      <>
-      {event.color === "#54BCB6" ? <View
+    if(event.isDone){
+      return(<View
         style={[
           position,
           styles.iconCheck,
@@ -32,7 +29,10 @@ const Event = ({
           size={CONTAINER_HEIGHT > 508 ? 11 : 9}
           style={{ position: 'absolute' }}
         />
-        </View>:
+        </View>)
+    }
+    if(event.color==='#C3C3C3')
+      return (
        <View
        style={[
          position,
@@ -44,8 +44,8 @@ const Event = ({
          color="#fff"
          size={CONTAINER_HEIGHT > 508 ? 11 : 9}
          style={{ position: 'absolute' }}/>
-         </View>}
-         </>
+         </View>
+       
     )
   }
 

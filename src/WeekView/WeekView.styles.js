@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor:BACKGROUND_COLOR,
-    paddingHorizontal:CONTAINER_WIDTH*0.15
+    paddingHorizontal:CONTAINER_WIDTH*0.12
   },
   scrollViewContent: {
     flexDirection: 'row',
@@ -17,10 +17,11 @@ const styles = StyleSheet.create({
   },
   header: {
     flex: 1,
-    height: SCREEN_HEIGHT > 668 ? 50 : 40,
+    width: CONTAINER_WIDTH,
+    height: SCREEN_HEIGHT > 668 ? 100 : 80,
     justifyContent: 'center',
     alignItems: 'center',
-    width: CONTAINER_WIDTH,
+ 
   },
 });
 

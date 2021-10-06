@@ -4,7 +4,7 @@ const DARKGRAY_COLOR='#5E5E5E'
 const styles = StyleSheet.create({
   columnContainer: {
     paddingTop: 10,
-    width: 60,
+    width: 70,
   },
   label: {
     flex: -1,
