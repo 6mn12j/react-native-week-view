@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { SCREEN_HEIGHT } from '../../../../src/components/screen/Home';
-import {  CONTAINER_WIDTH } from '../utils';
+import {  CONTAINER_WIDTH ,SCREEN_HEIGHT} from '../utils';
 
 const BACKGROUND_COLOR='#ECF5F471'
 const styles = StyleSheet.create({
