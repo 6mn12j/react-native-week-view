@@ -74,7 +74,7 @@ class NowLine extends React.Component {
           color={color}
           name='icon-schedule-pointer'
           style={styles.circle}
-          size={8}
+          size={10}
         />
       </Animated.View>
     );
