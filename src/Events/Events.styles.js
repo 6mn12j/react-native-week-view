@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: CONTENT_OFFSET,
     width: CONTAINER_WIDTH +3,
+    
   },
   timeRow: {
     flex: 0,

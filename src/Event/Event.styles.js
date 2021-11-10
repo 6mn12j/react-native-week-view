@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     width: CONTAINER_HEIGHT > 508 ? 21 : 18,
     height: CONTAINER_HEIGHT > 508 ? 21 : 18,
     borderRadius: 50,
-    marginLeft: 15,
+    marginLeft: 25,
     justifyContent: 'center',
     alignItems: 'center',
     
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     width: CONTAINER_HEIGHT > 508 ? 21 : 18,
     height: CONTAINER_HEIGHT > 508 ? 21 : 18,
     borderRadius: 50,
-    marginLeft: 15,
+    marginLeft: 25,
     justifyContent: 'center',
     alignItems: 'center',
    
